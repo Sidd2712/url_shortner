@@ -1,6 +1,7 @@
 const express=require("express"); 
 const connectDB=require("./configs/connection");
 const dotenv=require("dotenv");
+const cors=require("cors");
 const { sanitizeInput } = require("./middlewares/sanitizeInput");
 const limiter=require("./middlewares/rateLimiter");
 const urlRoutes=require("./routes/urlRoutes");
@@ -17,6 +18,7 @@ connectDB();
 app.use(express.json());
 app.use(sanitizeInput);
 app.use(limiter);
+app.use(cors());
 
 //Routes
 app.use('/sid', urlRoutes);

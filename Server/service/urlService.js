@@ -6,7 +6,7 @@ const {saveUrl, getUrlByShortId, incrementCount}=require('../repository/urlRepos
 
 function isValidUrl(url){
     try{
-        newURL(url);
+        new URL(url);
         return true;
     }catch(err){
         return false;
@@ -32,6 +32,7 @@ async function shortenUrl(originalUrl){
         return urlDoc
 
     }catch(error){
+        console.log("shorten error:", error);
         throw new Error('Error creating short URL: '+error.message);
     }
 }

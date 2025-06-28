@@ -4,7 +4,7 @@ const Url=require('../models/Url');
 
 async function saveUrl(shortId,originalUrl){
     const newUrl=new Url({shortUrl:shortId,originalUrl:originalUrl});
-    return await nrewUrl.save();
+    return await newUrl.save();
 }
 async function getUrlByShortId(shortId){
     return await Url.findOne({shortUrl:shortId});
