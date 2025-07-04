@@ -18,8 +18,12 @@ connectDB();
 app.use(express.json());
 app.use(sanitizeInput);
 app.use(limiter);
-app.use(cors());
-
+//app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3001",  // allow frontend origin
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 //Routes
 app.use('/sid', urlRoutes);
 
